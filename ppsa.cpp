@@ -65,23 +65,33 @@ template<typename T> void print(T t, const int& width){
 }
 // display the table	
 void display(vector<Process> list){
-	print("PID", 7);
-	print("PRIORITY", 12);
-	print("AT", 6);
-	print("BT", 6);
-	print("CT", 6);
-	print("TAT", 7);
-	print("WT", 0);
-	cout << '\n';
+	cout << "*-------*-------------*-------*-------*-------*--------*---*\n";
+	print("| PID", 7);
+	print(" | PRIORITY", 12);
+	print("   | AT", 6);
+	print("    | BT", 6);
+	print("    | CT", 6);
+	print("    | TAT", 7);
+	print("    | WT", 0);
+	cout << "|\n";
+	cout << "*-------*-------------*-------*-------*-------*--------*---*\n";
 	for(auto job: list){
-		print(job.pid, 7);
-		print(job.priority, 12);
-		print(job.arrival_time, 6);
-		print(job.burst_time, 6);
-		print(completion_time[job.pid], 6);
-		print(turnaround_time[job.pid], 7);
+		cout << "| ";
+		print(job.pid, 6);
+		cout << "| ";
+		print(job.priority, 10);
+		cout << "  | ";
+		print(job.arrival_time, 3);
+		cout << "   | ";
+		print(job.burst_time, 3);
+		cout << "   | ";
+		print(completion_time[job.pid], 3);
+		cout << "   | ";
+		print(turnaround_time[job.pid], 4);
+		cout << "   | ";
 		print(waiting_time[job.pid], 0);
-		cout << '\n';
+		cout << " |\n";
+		cout << "*-------*-------------*-------*-------*-------*--------*---*\n";
 	}
 
 }
